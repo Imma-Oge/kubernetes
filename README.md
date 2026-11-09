@@ -72,6 +72,7 @@ The control plane, or Master  in itself has various components that make up what
 We will go a step deeper into each of them to uncover how they function under the hood
 
 > **Diagram showing worker and master nodes**
+![Kubernetes Cluster Architecture](./diagrams/master-worker architecture![Kubernetes Architecture](./images/kubernetes-architecture.png).png)
 
 ## Control Plane
 
