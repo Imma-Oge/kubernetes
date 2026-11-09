@@ -62,7 +62,8 @@ We will go a step deeper into each of them to uncover how they function under th
 
 ** Control plane **
 
-The control plane's components are the ones responsible for making global decisions about the cluster as well as detecting and responding to cluster events ( Expected or unexpected )
+The control plane's components are the ones responsible for making  decisions about the cluster as well as detecting and responding to cluster events ( Expected or unexpected )
+ 
  ### components of the control plane ###
 
  **etcd** This can be refeered to  as the memory of the control plane
@@ -74,3 +75,47 @@ Now, if you understand what this means, you'll realize how important etcd is to 
 If youre familair with api servers this shoul be easy one to recognise. fundamenally, an API server acts as a middle man on an errand rather than you making a request directly to an application, the api helps take that request and returns with the result. this is important for security and safety especially for our etcd that holds very special and importan information. the Kube-apiserver is responsible for exposing the Kubernetes API. ot is the first entry point of the control plane. Every request coming to the control plane hits the kube-apiserver first 
 
 **Kube-scheduler**
+
+Before we talk about kube-scheduler its worthy  to mention pod here. it simply reprezens a set of running containers in the cluster so the kube scheduler is the one responsible for watching newly created pods and assign them to worker. there are so many factors that affect this scheduling including avaialable resources. like RAM CPU etc
+
+** kube-controller-manager**
+just as we briefly explained pods in the previous session let us also do justice to controller. 
+A controller is a control loop that watches the shared state of the cluster( worker annd master) it watches this process through the apiserver and makes changes from the current state to the desired state. Simply put, the controller keeps the whole cluster under survillance looking out for when the actual state of this cluster is changing from the desired state. Infact controller is our Military Guard commander lol
+
+so what then is the work of kube-controller manager?
+It simply manages the controller. Because each controller runs as a separate process, the manager controls them as though they are a single unit of process. 
+
+** cloud-controller-manager**
+With the mention of the word cloud, we can tell its the cloud manager for kubernetes.  it embeds cloud specific control logic into the process. it allows  you link your cluster into your choice cloud provider's API, and separates out the components that interact with that cloud platform from components that only interact with your cluster.
+
+
+
+## Worker or Node components ##
+
+these  components are seen in every node, they help in  maintaining running or active pods and provide the Kubernetes runtime environment.
+
+Again, we're doing a deep dive into each component starting with the kubelet
+
+** Kubelet**  I practically love this one just the way it sounds cute like a baby kube lol
+Cute as it may sound it is a powerful component of the node(worker machine) It is an agent that runs on each node in the cluster. 
+It makes sure that containers are running in a Pod.
+rememer we said pod represents a set of running containers which means ideally containers run inside a pod. The kubelet is responsible making sure this process runs smoothly.
+it does this through an operation that takes set of resources (PodSpecs) that are provided through different mechanisms and ensures that the containers described in those resources (PodSpecs) are running and healthy. The kubelet does not manage containers that were not created by Kubernetes. it is Kubernetes-native containers aware
+
+**kube-proxy**
+Its just but not insignificant a network proxy that runs on each node in your cluster. It maintains network rules on nodes. These rules allow network communication to the Pods from inside or outside of the cluster.
+
+** Container runtime**
+Another of my favourite 
+P.S i choose my favourites just based off how cute they sound. Please dont take it personal lol
+
+It is a fundamental component that empowers Kubernetes to run containers effectively.This is not kubelet neither is it pod. It is responsible for managing the execution and lifecycle of containers within the Kubernetes environment.
+
+
+
+Some addons worthy of mention here are:
+
+
+
+
+
