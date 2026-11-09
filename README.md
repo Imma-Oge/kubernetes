@@ -147,6 +147,11 @@ I choose my favourites just based on how cute they sound. Please don’t take it
 Container Runtime is a fundamental component that empowers Kubernetes to run containers effectively. This is not kubelet neither is it pod. It is simply responsible for managing the execution and lifecycle of containers within the Kubernetes environment.
 
 
+> **Diagram showing path from kubectl to Pod in a node**
+>
+> ![From kubectl to Pods](./diagrams/from_kubectl_to_pod.png)
+
+
 ## Some Add-ons Worthy of Mention Here
 
 ### Declarative Desired State
