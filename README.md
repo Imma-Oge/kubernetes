@@ -143,7 +143,7 @@ Container Runtime is a fundamental component that empowers Kubernetes to run con
 
 > **Diagram showing path from kubectl to Pod in a node**
 >
-> ![From kubectl to Pods](./diagrams/from_kubectl_to_pod.png)
+> ![From kubectl to Pods](./diagrams/kubectl_pod_annotation_path.png)
 
 
 ## Some Add-ons Worthy of Mention Here
