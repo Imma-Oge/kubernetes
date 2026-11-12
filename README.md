@@ -61,7 +61,7 @@ The combination of these components makes up the Kubernetes Cluster
 
 The Control plane initially called Master is the brain of Kubernetes. It is the one responsible for Planning how to successfully run these workload while the Worker is responsible for executing the actual tasks involved. But these two do not work in isolation, nor are they just one component within.
 
-The control plane, or Master  in itself has various components that make up what it is so does the worker 
+The control plane, or Master  in itself has various components that make up what it is, so does the worker 
 
 We will go a step deeper into each of them to uncover how they function under the hood
 
@@ -129,7 +129,7 @@ It does this through an operation that takes a set of resources (PodSpecs) that 
 
 
 ### kube-proxy
-It's just, but not insignificant,  a network proxy that runs on each node in your cluster. It maintains network rules on nodes. These rules allow network communication to the Pods from inside or outside of the cluster.
+It's just, but not insignificant, a network proxy that runs on each node in your cluster. It maintains network rules on nodes. These rules allow network communication to the Pods from inside or outside of the cluster.
 
 
 ### Container Runtime
@@ -167,7 +167,7 @@ They’re key-value pairs that are attached to objects like Pods. They contain a
 ### Why is a Pod not the same thing as a container?
 
 Well, from our definition of pods and containers, although they work closely together,  
-A Pod is a Kubernetes object and the smallest deployable unit in Kubernetes, while a container is the environment where the packaged application runs. example an ETL container
+A Pod is a Kubernetes object and the smallest deployable unit in Kubernetes that provides the environment where containers can run, while a container is the environment provided for our packaged application runs. example an ETL container
 
 The Pod provides a shared execution logic for its containers, like networking and access to configured storage volumes.
 
