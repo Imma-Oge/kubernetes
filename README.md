@@ -1,13 +1,15 @@
 # Kubernetes: Basic Understanding
 
 Hi, welcome to my Kubernetes repository.
-In this documentation, I will be walking through my journey of understanding everything about Kubernetes. From the problem it is built to solve, a view into architectural diagram and each component part that makes up the integral system of distributed Highly Available, self healing system that makes orchestration of Workflows easier. 
+In this documentation, I will be walking through my journey of understanding everything about Kubernetes. From the problem it is built to solve, a view into the architectural diagram and each component part that makes up the integral system of a highly available, self-healing system that makes orchestration of Workflows easier. 
 
 This documentation is prepared to expose components, concepts, logics and the right implementation of Kubernetes. In the end a reader is not just aware of the capabilities of Kubernetes but also have deep knowledge of how the system operates under the hood. References to actual documentation links will also be shared along the way for reference and more deep dive into any part 
 
 ## What is Kubernetes?
 
-Most people know Kubernetes as a workflow orchestration tool(data workflow)that’s a vague definition because by practical implementation there are tons of orchestration tools going by that definition alone. So what is an orchestration tool? Google defines an orchestration tool as a software that automates, coordinates, and manages complex, multi-step workflows across multiple computer systems, applications, and services. This means in any case of  workflow such as the popular ones ;like 
+Most people know Kubernetes as a workflow orchestration tool(data workflow)that’s a vague definition because by practical implementation there are tons of orchestration tools going by that definition alone. So what is an orchestration tool? 
+
+Google defines an orchestration tool as software that automates, coordinates, and manages complex, multi-step workflows across multiple computer systems, applications, and services. This means in any case of  workflow such as the popular ones; like 
 - Software Development (Continuous Integration / Continuous Deployment)
 - Data Engineering & Analytics (Daily Financial Reporting)
 - or even E-Commerce & Retail (Order-to-Delivery)
@@ -16,36 +18,28 @@ These are workflows that require sequence of operations to be managed at a speci
 
 Managing workflows like these requires coordination. This could actually be manually managed  (if there are few  parts involved).
 
-But what happens when there are 100s or thousands of tasks that need to be precisely coordinated? 
+At this point one might think "Docker" for managing data workflows. 
 
-It definitely requires a system that can eliminate manual coordination and must precisely give optimal results while dynamically considering the underlying infrastructures and the conditions that must be met for a successful workflow.
+Yes, Docker is a data orchestration tool that manages containers. Where each container is a package of an application and its dependencies.
+
+For example, imagine you have an ETL python application that is required to extract, transform and load data into a Postgres DB; both tools require dependencies such as libraries and credentials for this to work. If these dependencies change at any given time due to some differences then the Whole workflow fails.
+
+To make this work the application and database are both containerized that is, packaged alongside their dependencies or credentials to be shipped anywhere. lol I guess the reason why docker has a shark logo.
+
+But in docker, you would need to determine where they should run, manage failed containers, scale applications, and manage communication between them. This is a lot of Hats to wear for Docker or, worst case, an ordinary human. 
+
+Also what happens when there are 100s or thousands of containers or tasks that need to be precisely coordinated? 
+
+The workflow definitely requires a system that can eliminate manual coordination and must precisely give optimal results while dynamically considering the underlying infrastructures and the conditions that must be met for a successful workflow.
 
 This is the kind of problem Kubernetes solves.
 
-Kubernetes according the documentation is a **portable**, **extensible**, open-source platform for managing **containerized**workloads and services that facilitate both **declarative configuration and automation**.
+Kubernetes, according to the documentation, is a **portable**, **extensible**, open-source platform for managing **containerized** workloads and services that facilitate both **declarative configuration and automation**.
 
-Not to worry we will unpack these concepts in a bit
+In addition to Docker's management of containers, Kubernetes has some extensible and flexible  features that help improve the life and health of this workflow. One of these featues is the concept of declarative state where you can give Kubernetes a set of instructions on how the state of your workflow should be, and it is automated as well
 
-First, we start with the word containerised.
 
-Containerization is the process of packaging an application or workload together with it’s dependencies, libraries, and required runtime into a container image so that it can run consistently across different environments. 
-
-Think of Docker (This assumes you have basic knowledge of Docker and the problem it is created to solve). 
-
-To further break this down, imagine you have an ETL python application that is required to extract transform and load data into a Postgres DB; both tools require dependencies such as libraries and credentials for this to work. If these dependencies change at any given time due to some differences then the Whole workflow fails.
-To achieve these the application and database are both containerized that is, packaged alongside their dependencies or credentials to be shipped anywhere. lol I guess the reason why docker has a shark logo.
-
-One may wonder where does Kubernetes come in then if we’re here talking about Docker. 
-Well, we all know a system or tool is created to solve the shortcomings of another. In this case, Docker.
-
-Docker can build container images and run containers. But imagine having hundreds of containers distributed across multiple servers.
-Servers, in this context, can be likened to different computers, each having its own computing resources, such as CPU, memory (RAM), storage, and networking capabilities.
-
-You would need to determine where they should run, manage failed containers, scale applications, and manage communication between them. This is a lot of Hats to wear for Docker or, worst case, an ordinary human. 
-
-This is the problem Kubernetes was built to solve 
-
-Tying this back to our definition from the official Kubernetes documentation, Kubernetes is a portable and extensible platform that can run across different computing environments and can accommodate additional capabilities.
+Kubernetes therefore is a portable and extensible platform that can run across different computing environments (machines) and can accommodate those additional capabilities.
 
 * It helps us manage the complexities and unpleasant surprises that come with running hundreds of containerised applications across multiple servers.
 
