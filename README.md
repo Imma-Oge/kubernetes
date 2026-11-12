@@ -7,7 +7,7 @@ This documentation is prepared to expose components, concepts, logics and the ri
 
 ## What is Kubernetes?
 
-Most people know Kubernetes as a workflow orchestration tool(data workflow)that’s a vague definition because by practical implementation there are tons of orchestration tools going by that definition alone. So what is an orchestration tool? 
+Most people know Kubernetes as a workflow orchestration tool (data workflow) that’s a vague definition because by practical implementation there are tons of orchestration tools going by that definition alone. So what is an orchestration tool? 
 
 Google defines an orchestration tool as software that automates, coordinates, and manages complex, multi-step workflows across multiple computer systems, applications, and services. This means in any case of  workflow such as the popular ones; like 
 - Software Development (Continuous Integration / Continuous Deployment)
